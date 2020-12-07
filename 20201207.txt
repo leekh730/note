@@ -1,0 +1,32 @@
+[2020.12.07]
+# MIME(Multipurpose Internet Mail Extensions)
+컴퓨터 사용 환경이 텍스트 기반에서 멀티미디어 환경으로 확대되면서 전자 메일 시스템도 새로운 형식의
+데이터를 수용할 수 있도록 확장 작업이 이뤄짐. 특히, 7비트 형식의 ASCII코드에서 지원하지 않는 각국의 언어와
+이진 데이터 형식의 실행 파일, 영상, 음성 등의 데이터를 전송하려면 기능 확장은 필수.
+MIME은 이러한 필요성에 의해 도입되어 전자 메일 환경에서 보편적으로 사용함
+MIME 기능을 사용해 메일 송신자가 전송하려는 비-ASCII 형식의 데이터를 미리 ASCII 형식으로 변환 
+메일 수신자는 반대로 ASCII 형식의 데이터를 원래의 데이터 형식으로 역변환하여 사용자 화면에 보여줌
+결과적으로 인터넷으로 전송되는 모든 메일 데이터는 여전히 ASCII 형식으로 전송됨
+MIME에 의한 멀티미디어 데이터의 지원은 송수신자의 양 끝단에서 이루어지는 작업
+
+# Matrix(행렬)
+# Dimension(차원)
+# VGA(Video Graphics Array)
+IBM사에서 Personal Computer에서 사용했던 그래픽 규격, 17가지의 표시 모드를 가지고 640x480 해상도를 표현
+현재는 800x600 이상의 해상도와 246컬러 이상을 표현
+해상도별 비교
+          VGA         SVGA        XGA         WXGA        Full-HD
+해상도  640x480      800x600    1024x768     1280x720    1920x1080
+화면비율  4:3          4:3        4:3          16:9         16:9
+용도     텍스트        그림     사진 감상     영화 감상    고화질 영화
+
+@@@ PC용 카메라 연결 및 실행하기
+terminal창에 ls -l /dev/video* // 카메라가 연결됬는지 확인
+
+sudo apt install ffmpeg //ffmpeg 다운받기
+ffplay /dev/video0 //카메라 실행
+
+sudo apt install v4l-utils // v4l 다운받기
+v4l2-ctl // v4l2 실행
+
+sudo apt install python3-opencv -y // opencv 다운받기
