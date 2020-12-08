@@ -1,0 +1,44 @@
+[2020.12.08]
+@@@ 픽스호크와 QroundControl 연결하기
+픽스호크 좌측 마이크로 5핀을 컴퓨터와 연결하기
+이후 QroundControl실행하면 자동으로 연결됨 (혹 연결이 안되면 5핀 뽑았다가 다시 꼽기)
+QroundControl에서 setting - Firmware에 들어가면 자동으로 펌웨어가 됨 (혹 연결이 안되면 다시 핀 뽑았다가 꼽기)
+이후 연결이 완료 되면 우측에 px4, Ardupilot을 선택하라는 창이 나오고 px4를 선택하면 됨
+
+1. Airframe 설정 
+창에서 Quadrotor x(Generic Quadcopter) 선택 후 가장 위 Apply and Restart 실행
+
+2. Sensors 설정
+Sensors 창에 들어가서 Gyroscope setitng 클릭 후 Apply
+Accelerometry setting 클릭 후 rotation_none으로 설정 후 Apply
+Level Horizontal setting 클릭 후 rotation_none으로 설정 후 Apply
+그리고 그냥 핀 뽑아서 연결 해제
+
+3. 조종기 세팅
+전원 인가 후 mode 설정 (mode키 꾹 누루고 basic menu로 들어감)
+parameter에 들어가서 STK-mode를 2로 설정 // mode 2로 설정
+basic menu 최상단에서 한 칸 아래에 muticopter로 설정되어 있는지도 꼭 확인!
+
+4. 송수신기 세팅(Binding)
+pixhawk에 다시 전원 연결(컴퓨터랑 연결해도 됨)
+수신기를 pixhawk RC부분에 핀 연결(검정색 선(-)이 위로 향하게끔)
+그럼 이제 수신기에도 불빛(전원)이 들어옴
+이후 수신기 옆 버튼을 1초 이상 누르며 파랑색 불빛이 들어올 때 까지 기다리고, 다시 1초 이상 길게 누르면 바인딩이 됨
+
+5. Radio 세팅
+QroundControl에 접속 후 Radio 세팅 창에 들어가서 Radio calibrate 하기
+Controller의 모든 스틱을 0점을 잡아 두고 QroundControl에서 Calibrate를 선택
+QroundControl에서 나오는 모양 따라서 Throttle키를 가장 아래로 하고, next 클릭 후 이후 화면에 나오는 모양대로 실시
+6번 채널은 좌측 스틱 뒷편 조절 스위치(VRC)이고 7번 채널을 우측 스틱 뒷편 조절 스위치(VRD)
+완료가 되면 next를 두번 누르면 완료
+Throttle -> Yaw -> Pitch -> Roll -> 이후 좌측 VRC switch와 우측 VRD Switch 캘리브레이션
+
+6. Firmware Update``````````````````````ㅊ' 
+는데 PC와 pixhawk를 연결하고 QroundControl을 실행해서 
+Firmware창으로 들어감 이후 pixhawk와 pc 연결을 해제 후 다시 연결 하면 firmware 연결 및 실행 가능하다는 창이 뜨면 실행 실시
+px4pro를 선택하고 펌웨어 실시
+
+7. Sensor re-calibration하기
+compass calibrate 실시 후 다른 센서들이 안되어 있으면 re-calibration하기
+
+8. 조종기와 수신기 연결
