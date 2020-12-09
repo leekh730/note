@@ -30,3 +30,5 @@ sudo apt install v4l-utils // v4l 다운받기
 v4l2-ctl // v4l2 실행
 
 sudo apt install python3-opencv -y // opencv 다운받기
+terminal창에서 import cv2 as cv
+print(cv.__version__) // opencv version 확인

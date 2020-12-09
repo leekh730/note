@@ -1,0 +1,14 @@
+[2020.12.09]
+
+git clone https://github.com/opencv/opencv
+
+@@@ 컴퓨터에 연결된 usb 리스트 확인하는 법
+terminal창에 lsusb를 입력하면 연결된 usb가 모두 출력됨
+
+v4l2-ctl --list-devices // device list 확인
+
+v4l2-ctl --device=/dev/video0 --all // video0의 상세 정보 확인
+
+# opencv // library
+opencv는 이미지, 영상처리를 다루는데 특화된 툴, c/c++로 작성되었음
+
