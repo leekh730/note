@@ -1,0 +1,17 @@
+[2020.12.10]
+# cv.imwrite(filename, img[,params]) // 이미지 저장, 파일형식은 수업 때는 png와 jpg를 사용하자
+
+# set // 정해진 자원 사용하는 것(말 그대로 세트 사용)
+
+# cv.CAP_PROP_POS_MSEC // 이미지 재생 중에 하단에 생기는 진행 표시 bar (대문자로 된 것은 set에 있는 자원을 그대로 가져다 사용하는 것)
+
+# (*'DIVX') // *는 list type을 저장되고, **는 dic type으로 저장됨
+               즉, 'DIVX'는 ('D', 'I', 'V', 'X')로 출력되어 나옴
+
+# image crop은 opencv에서 제공하는 crop 기능을 사용하기보다는 matrix를 indexing해서 crop하는게 더 좋다
+
+# RGB는 3차원 즉, 3채널이고, Black&White는 2차원 즉, 2채널이다. 이 둘을 concatenate를 하기 위해서는 black&white를 3차원으로 바꿔야 Gray 색으로 표현됨
+
+# neighbor는 한 점에 주변에 있는 점들을 얘기한다. 
+그리고 하나의 점에서 또 다른 점들과의 거리를 계산하는 방법은 점과 점을 있는 선이 아닌 점과 점간의 각도를 통해 거리를 판단한다.
+각도를 사용하므로, deeplearning에는 cos을 사용한다.
