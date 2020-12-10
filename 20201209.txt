@@ -12,3 +12,4 @@ v4l2-ctl --device=/dev/video0 --all // video0의 상세 정보 확인
 # opencv // library
 opencv는 이미지, 영상처리를 다루는데 특화된 툴, c/c++로 작성되었음
 
+git clone https://github.com/opencv/opencv.git //opencv 예제 git clone
