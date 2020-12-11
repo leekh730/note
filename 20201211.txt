@@ -1,0 +1,34 @@
+[2020.12.11]
+
+sudo apt install -y tesseract-ocr libtesseract-dev # tesseract-ocr(Optical Character Reader), 광학 문자 인식
+                                                   # 빛을 이용해서 문자를 인식하는 기술
+tesseract --version # version 확인
+
+# LSTM(Long Short-Term Memory)
+기존에 함수는 한번 사용되고 나면 결과값만 출력만 해주고 출력 이후에는 전에 했던 과정을 기억하지 못한다.
+하지만 LSTM은 함수에 또 다른 함수를 덧붙여서 이전에 결과값을 도출했던 과정을 기억해서 재출력 할 수 있게 한다.
+이것을 문자에 대입하면, 앞 글자가 나오고 나면 뒷글자를 스스로 어떤 값이 나올 것인지를 예상해서 연관지어서 나올 수 있게 한다.
+
+Downloads receipt for example(eng, kor, rgbreceipt ect)
+영수증 crop해서 문자만 보이게 crop하기
+
+@@@ https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc # tesseract 옵션 description
+terminal창에 tesseract ./1crop.png stdout l eng --psm 6 # -l은 language를 뜻함
+를 하면 crop했던 사진과 비교해서 보면 text가 인식되어 터미널창에 출력되는 것을 확인 할 수 있다.
+
+stdout = standardout은 화면에 띄워주기만!
+
+tesseract ./4crop.png ./dump.txt l eng --psm 6 이렇게 입력하면 현재 위치 ./에 dump.txt로 저장된다.
+
+sudo apt install -y tesseract-ocr-kor # korean 인식하기 위해 설치
+sudo apt install -y tesseract-ocr-kor-ver # vertical문자까지 인식하기 위해 설치
+
+tesseract ./4crop.png stdout --oem 3 --psm 6 -l kor+kor_ver+eng # 한글, 수직한글과 영어 다 출력
+
+# vector는 list, 행로 1차원, matrix는 행렬로 2차원, tensor는 3차원
+# vector는 방향과 값이 존재하고, scalar는 방향은 없이 값만 존재한다. (scalar의 예는 몸무게로 몸무게는 방향이 없이 값만 있어 scalar라고 하나, 중력은 방향이 있어 vector라고 한다.)
+
+python3 -m pip install pytesseract # install pytesseract
+/usr/bin/python3 -m pip install --upgrade pip # pytesseract upgrade
+
+pip3 install --upgrade opencv-python # upgrade opencv
