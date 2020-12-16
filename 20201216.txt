@@ -1,0 +1,41 @@
+[2020.12.16]
+@ jetbot 연결
+먼저, jetbot에 마이크로 5핀으로 컴퓨터와 연결해준다.
+이후 터미널창에 dmesg | grep --color 'tty' 입력해서 jetbot이 연결되어있는지 확인
+그럼 아래와 같이 나옴 ----------------------
+console [tty0] enabled
+cdc_acm 1-3:1.2: ttyACM0: USB ACM device
+-------------------------------------------
+추가 확인하는 방법
+터미널창에 ls -l /dev/ttyACM*을 입력하면 아래와 같이 나옴 ------
+crw-rw---- 1 root dialout 166, 0 12월 16 10:06 /dev/ttyACM0
+--------------------------------------------------------------
+screen으로 연결하는 방법
+sudo screen /dev/ttyACM0 115200 # screen이라는 애플리케이션을 사용하고 115200으로 연결
+sudo password 입력하고, 그 뒤 화면이 안나오면 엔터 한번 치면 나옴
+jetson 로그인 하라고 하면 ID jetbot, pwd jetbot으로 설정해줌
+그리고 ifconfig를 쳐서 wireless를 IP주소 확인
+ssh jetson@192.168.0.244로 접속
+------------------------------------------------------------------------
+putty로 연결하는 방법
+sudo apt install putty // putty install
+
+putty // putty실행
+
+putty창이 뜨면, session창에서 serial로 들어가서 
+serial line에 /dev/ttyACM0, speed에 115200 입력
+그리고 바로 아래에 saved sessions에 위에 입력한 값을 save하고 load하기
+그리고 open을 누르면 putty 터미널창이 뜸
+------------------------------------------------------------------------
+screen과 putty 터미널 이후 실행법
+nmcli device wifi list를 쳐서 wifi 리스트 확인
+사용하고자 하는 와이파이 명과 패스워드 입력
+ex) sudo nmcli device wifi connect AI_Multicopter password rapa0206\!\@\#\$
+그리고 다시 ifconfig로 연결됬는지 확인, 또 jetbot기기를 보면 IP주소가 뜨게 됨
+-------------------------------------------------------------------------
+이후 터미널창에서
+ssh jetbot@192.168.0.244 //부여 받은 IP주소로 ssh를 연결
+하면 jetbot 터미널창이 나오고 pw로 jetbot 입력
+-------------------------------------------------------------------------
+jetbot과 web browser 연결
+http://192.168.0.244:8888 // jetbot jupyter notebook
